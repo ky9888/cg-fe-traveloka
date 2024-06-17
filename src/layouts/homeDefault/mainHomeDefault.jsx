@@ -6,7 +6,7 @@ import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
 function MainHomeDefault() {
   return (
     <>
-      <main className=" pt-[50px] px-[5%]  font-bold bg-white  rounded-t-[40px]">
+      <main className=" pt-[50px] px-[7%]  font-bold bg-white  rounded-t-[40px]">
         <div>
           <h1 className=" font-bold text-[25px] mb-[20px] text-slate-700 ">
             Register to enjoy this promo 👇🏻
@@ -26,7 +26,7 @@ function MainHomeDefault() {
             src="https://ik.imagekit.io/tvlk/image/imageResource/2024/03/27/1711528772107-72abb28e54c271a6014bf74d7e3af8e5.png?tr=q-75,w-1280"
             alt=""
           />
-          <div className="my-[80px] text-center">
+          <div className="my-[80px] pl-[1%] text-center">
             <MainSlide />
           </div>
           <img
@@ -349,7 +349,7 @@ function MainHomeDefault() {
           </div>
         </div>
       </main>
-      <main className=" px-[5%] bg-white font-bold pb-[7%] mt-5">
+      <main className=" px-[7%] bg-white font-bold pb-[7%] mt-5">
         <div>
           <div className=" m-auto mt-20 w-[150px] bg-slate-100 h-[40px] flex items-center justify-center rounded-md text-blue-500  ">
             <div>

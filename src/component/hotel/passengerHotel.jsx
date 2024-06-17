@@ -3,22 +3,22 @@ import { useEffect } from "react";
 import {
   toggleDropdown1,
   selectDropdownState1,
-} from "../redux/mainSlice/dropdown";
+} from "../../redux/mainSlice/dropdown";
 import {
   adultsIncrease,
   adultsDecreased,
   selectAdults,
-} from "../redux/mainSlice/toggleAdult";
+} from "../../redux/mainSlice/toggleAdult";
 import {
   childrenIncrease,
   childrenDecreased,
   selectChildren,
-} from "../redux/mainSlice/toggleChildren";
+} from "../../redux/mainSlice/toggleChildren";
 import {
   babyIncrease,
   babyDecreased,
   selectBaby,
-} from "../redux/mainSlice/toggleBaby";
+} from "../../redux/mainSlice/toggleBaby";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChevronDown,
@@ -29,7 +29,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FaChevronUp } from "react-icons/fa6";
 
-function DropDownPassenger() {
+function PassengerHotel() {
   const isOpen1 = useSelector(selectDropdownState1);
   const Adults = useSelector(selectAdults);
   const children = useSelector(selectChildren);
@@ -81,26 +81,42 @@ function DropDownPassenger() {
   }, []);
 
   return (
-    <div className="relative border w-[350px] rounded-md bg-slate-500/60">
-      <button
-        id="button1"
-        onClick={handleDropdownToggle1}
-        className="  flex items-center p-[6px] space-x-2 px-2 w-full  "
-      >
-        <span className="space-x-8 flex items-center   ">
-          <FontAwesomeIcon className="mr-3" icon={faUsers} /> {Adults} người lớn, {children} Trẻ
-          em, {baby} Em bé 
-          {!isOpen1 ? <FontAwesomeIcon icon={faChevronDown} /> : <FaChevronUp />}
-        </span>
-      </button>
+    <div className="relative mt-3 space-y-[15px] ">
+      <p className="text-white text-[14px] font-medium ">Khách và Phòng:</p>
+      <div className="w-[350px] h-[50px] outline outline-[3px] outline-slate-500  bg-white flex ">
+        <button
+          id="button1"
+          onClick={handleDropdownToggle1}
+          className="  flex items-center p-[6px] space-x-2 px-2 w-full  "
+        >
+          <span className="space-x-8 flex items-center   ">
+            <FontAwesomeIcon className="mr-3" icon={faUsers} /> {Adults} người
+            lớn, {children} Trẻ em, {baby} phòng
+            {!isOpen1 ? (
+              <FontAwesomeIcon icon={faChevronDown} />
+            ) : (
+              <FaChevronUp />
+            )}
+          </span>
+        </button>
+      </div>
 
-      <div className=" absolute w-full z-10 text-slate-800">
+      <div className=" absolute w-full z-10 top-[75px] text-slate-800">
         {isOpen1 && (
-          <div id="content1" className="  bg-white space-y-3 py-3 rounded-md z-20   ">
+          <div
+            id="content1"
+            className="  bg-white space-y-3 shadow-md py-3 rounded-md z-20   "
+          >
             <div className="flex justify-between items-center px-[10px]  ">
-              <span className="text-[20px] text-slate-600 "> Số hành khách</span>
+              <span className="text-[20px] text-slate-600 ">
+                {" "}
+                Số hành khách
+              </span>
               <a href="">
-                <FontAwesomeIcon icon={faXmark} className="text-[20px] text-slate-600" />
+                <FontAwesomeIcon
+                  icon={faXmark}
+                  className="text-[20px] text-slate-600"
+                />
               </a>
             </div>
             <div className="px-1 space-y-2 pb-2">
@@ -113,15 +129,14 @@ function DropDownPassenger() {
                   />
                   <div>
                     <p>Người lớn</p>
-                    <p className="text-[12px]">(từ 12 tuổi)</p>
                   </div>
                 </div>
 
-                <button  onClick={handleAdultsDecreased}>
+                <button onClick={handleAdultsDecreased}>
                   <FontAwesomeIcon icon={faMinus} className="text-blue-500" />
                 </button>
                 <span>{Adults}</span>
-                <button  onClick={handleAdultsIncrease}>
+                <button onClick={handleAdultsIncrease}>
                   <FontAwesomeIcon icon={faPlus} className="text-blue-500" />
                 </button>
               </div>
@@ -135,12 +150,11 @@ function DropDownPassenger() {
                   />
                   <div>
                     <p>Trẻ em</p>
-                    <p className="text-[12px]">(từ 2 - 11 tuổi)</p>
                   </div>
                 </div>
 
                 <button onClick={handleChildrenDecreased}>
-                  <FontAwesomeIcon icon={faMinus} className="text-blue-500" />
+                  <FontAwesomeIcon icon={faMinus} className="text-blue-500 ml-7" />
                 </button>
                 <span>{children}</span>
                 <button onClick={handleChildrenIncreasse}>
@@ -156,13 +170,12 @@ function DropDownPassenger() {
                     alt=""
                   />
                   <div>
-                    <p>Em bé</p>
-                    <p className="text-[12px]">(dưới 2 tuổi)</p>
+                    <p>Phòng</p>
                   </div>
                 </div>
 
                 <button onClick={handleBabyDecreased}>
-                  <FontAwesomeIcon icon={faMinus} className="text-blue-500" />
+                  <FontAwesomeIcon icon={faMinus} className="text-blue-500 ml-4" />
                 </button>
                 <span>{baby}</span>
                 <button onClick={handleBabyIncreasse}>
@@ -186,4 +199,4 @@ function DropDownPassenger() {
   );
 }
 
-export default DropDownPassenger;
+export default PassengerHotel;

@@ -1,13 +1,12 @@
 import { useState, useEffect } from "react";
 import DatePicker from "react-datepicker";
-import { CiCalendarDate } from "react-icons/ci";
+import { FaRegCalendarDays } from "react-icons/fa6";
 import { useDispatch } from "react-redux";
-import { setdateFlight2 } from "../../redux/userSlice/valueInput";
-
+import { setDateHotel1 } from "../../redux/userSlice/valueHotelInput";
 
 import "react-datepicker/dist/react-datepicker.css";
 
-function DateFlight1() {
+function DateHotel1() {
   const [selectData1, setSelectData1] = useState(null);
   const [dateCurrent, setDateCurrent] = useState(null);
   const dispatch=useDispatch()
@@ -23,7 +22,7 @@ function DateFlight1() {
     setSelectData1(date);
     console.log(selectData1);
     const formattedDate = formatDate(date);
-    dispatch(setdateFlight2(formattedDate))
+    dispatch(setDateHotel1(formattedDate))
     console.log(formattedDate);
    
   };
@@ -35,14 +34,12 @@ function DateFlight1() {
   };
 
   return (
-    <div className="relative w-[250px]">
-      <p className="text-[14px] text-slate-600">Khứ hồi</p>
-      <div className="flex items-center space-x-2 font-medium  ">
-      <CiCalendarDate className="text-[20px]" />
-        
+    <div className="mt-3 space-y-[15px]">
+      <p className="text-[14px] text-white font-medium ">Ngày nhận phòng:</p>
+      <div className="relative outline ouline-[3px] outline-slate-500">
+        <FaRegCalendarDays className="absolute top-3 left-3 z-[1] text-blue-500 text-[25px]" />
         <DatePicker
-        
-          className="button h-[40px] text-black w-[100%] outline-0   "
+          className="h-[50px] text-slate-800 w-[300px] outline-0 pl-[50px]  "
           selected={dateCurrent}
           onChange={handleChange}
           dateFormat="dd/MM/yyyy"
@@ -53,4 +50,4 @@ function DateFlight1() {
   );
 }
 
-export default DateFlight1;
+export default DateHotel1;

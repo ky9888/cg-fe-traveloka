@@ -2,6 +2,8 @@ import HeadlessTippy from "@tippyjs/react/headless";
 import "tippy.js/dist/tippy.css";
 import { useState, useEffect } from "react";
 import { LuRockingChair } from "react-icons/lu";
+import { useDispatch } from "react-redux";
+import { setsetlectFlight } from "../../redux/userSlice/valueInput";
 
 const arr = ["Phổ thông", "Phổ thông đặt biệt", "Thương gia", "Hạng nhất"];
 
@@ -10,6 +12,7 @@ function SelectFlight() {
   //const [searchValue,setSearcValue] = useState("");
   const [showResult, setShowResult] = useState(false);
   const [select, setSelect] = useState(null);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     setSearchResult(arr);
@@ -17,6 +20,7 @@ function SelectFlight() {
 
   const handleSelect = (value) => {
     setSelect(value);
+    dispatch(setsetlectFlight(value))
   };
 
   const handleMouseDown = () => {

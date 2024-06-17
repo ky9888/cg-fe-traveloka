@@ -1,8 +1,9 @@
 import { useEffect } from "react";
-import HeaderHomeDefault from "../layouts/homeDefault/hederHomeDefault";
-import MainHomeDefault from "../layouts/homeDefault/mainHomeDefault";
-import FooterHomeDefault from "../layouts/homeDefault/footerHomeDefault";
-import Flight from "../layouts/privateHome/flightHome";
+import HeaderHomeDefault from "../../layouts/homeDefault/hederHomeDefault";
+import MainHomeDefault from "../../layouts/homeDefault/mainHomeDefault";
+import FooterHomeDefault from "../../layouts/homeDefault/footerHomeDefault";
+// import Flight from "../../layouts/privateHome/flightHome";
+
 
 function HomeFlight() {
   useEffect(() => {
@@ -11,20 +12,16 @@ function HomeFlight() {
       const login = document.getElementById("login");
       const icon = document.getElementById("icon");
       const a = document.getElementById("a");
-      const b = document.getElementById("b");
       const img = document.getElementById("img");
-
-      if (scrollY > 0) {
+      if (window.scrollY > 0) {
         header.style.transition = "background-color 0.4s ease-in-out";
         header.style.backgroundColor = "white";
         header.classList.add("text-slate-600");
         login.style.borderColor = "blue";
         icon.style.color = "blue";
         a.style.backgroundColor = "black";
-        b.style.backgroundColor = "black";
         img.src =
           "https://d1785e74lyxkqq.cloudfront.net/_next/static/v2/9/97f3e7a54e9c6987283b78e016664776.svg";
-
         // Đóng dropdown khi click bên ngoài
       } else {
         header.style.backgroundColor = "";
@@ -32,16 +29,16 @@ function HomeFlight() {
         login.style.borderColor = "";
         icon.style.color = "";
         a.style.backgroundColor = "";
-        b.style.backgroundColor = "";
+
         img.src =
           "https://d1785e74lyxkqq.cloudfront.net/_next/static/v2/f/fbab4f587da2242fbe9858fe3e5ba717.svg";
       }
     };
-
     window.addEventListener("scroll", handleHeader);
+    return () => {
+      window.removeEventListener("scroll", handleHeader);
+    };
   }, []);
-
-  
 
   //
 
@@ -49,7 +46,6 @@ function HomeFlight() {
   return (
     <div>
       <div className="relative  ">
-        <div id="cos"></div>
         <div className="absolute z-[-1] h-[100vh] ">
           <img
             className=""
@@ -57,9 +53,8 @@ function HomeFlight() {
             alt=""
           />
         </div>
-
-        {<HeaderHomeDefault />}
-        {<Flight />}
+         
+        {<HeaderHomeDefault />}          ?
         {<MainHomeDefault />}
         {<FooterHomeDefault />}
       </div>

@@ -10,6 +10,7 @@ import { HiMagnifyingGlass } from "react-icons/hi2";
 import { GiCommercialAirplane } from "react-icons/gi";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { AiOutlinePlus } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 import { useState, useEffect } from "react";
 
@@ -86,7 +87,7 @@ function OneCity() {
   }, []);
 
   return (
-    <div className="relative">
+    <div className="relative ">
       <div id="black" className="  w-full  ">
         <div className="ml-5 flex relative translate-y-2  items-center w-[160px] space-x-2 text-slate-100  bg-sky-500 font-bold px-6 py-1 rounded-t-lg    ">
           <GiCommercialAirplane />
@@ -131,7 +132,7 @@ function OneCity() {
           </div>
 
           {showResult && (
-            <div className="border-[1px] border-blue-600 rounded-b-md ">
+            <div className="border-[1px]   border-blue-600 rounded-b-md ">
               <div className=" px-5 pt-5 bg-white rounded-lg relative ">
                 <div className="flex relative space-x-5">
                   <div>{<ChooseFlight />}</div>
@@ -139,15 +140,15 @@ function OneCity() {
                   <div className="w-[100%]">{<PassengerFlight />}</div>
                 </div>
                 <div className="flex relative space-x-5 mt-12 ">
-                  <div className="w-[600px]">{<DateFlight1 />}</div>
-                  <div className="w-[600px]">{<DateFlight2 />}</div>
+                  <div className="border-b-[1px] border-slate-400 hover:border-slate-800">{<DateFlight1 />}</div>
+                  <div className="border-b-[1px] border-slate-400 hover:border-slate-800">{<DateFlight2 />}</div>
                   <div className="w-[100%]">{<SelectFlight />}</div>
                 </div>
                 <div className="flex justify-end  mt-4">
-                  <div className="flex items-center  rounded-lg font-bold space-x-2 text-slate-100 justify-center py-2 bg-orange-600 w-[380px]  mb-4 ">
+                  <Link to="/flightSearch" className="flex items-center  rounded-lg font-bold space-x-2 text-slate-100 justify-center py-2 bg-orange-600 w-[380px]  mb-4 ">
                     <HiMagnifyingGlass />
                     <p>Tìm chuyến bay</p>
-                  </div>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -155,16 +156,16 @@ function OneCity() {
 
           {showResult1 && (
             <div className="  relative top-[-11px] mt-[11px]  rounded-b-md mb-10 ">
-              <div className=" px-5 pt-5 top  bg-white rounded-lg  border-[1px] border-blue-600  w-[960px]  ">
+              <div className=" px-5 pt-5 top  bg-white rounded-lg  border-[1px] border-blue-600    ">
                 <div className="flex relative space-x-5 mt-5">
                   <div>{<ChooseFlight />}</div>
                   <div>{<ChooseFlight2 />}</div>
-                  <div className="w-[100%]">{<DateFlight1 />}</div>
+                  <div className="w-[100%] mt-[3px] border-b-[1px] border-slate-400 hover:border-slate-800">{<DateFlight1 />}</div>
                 </div>
                 <div className="flex relative space-x-5 mt-7">
                   <div className="mt-[22px]">{<ChooseFlight3 />}</div>
                   <div className="mt-[22px]">{<ChooseFlight4 />}</div>
-                  <div className="w-[100%]">{<DateFlight2 />}</div>
+                  <div className="w-[100%] border-b-[1px] border-slate-400 hover:border-slate-800">{<DateFlight2 />}</div>
                 </div>
                 <p className="flex items-center space-x-2 text-blue-500 font-bold ml-5 my-4">
                   <AiOutlinePlus className=" text-blue-800" />

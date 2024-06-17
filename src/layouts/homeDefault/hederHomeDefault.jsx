@@ -1,27 +1,75 @@
 import DropDown from "../../component/dropdown";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
+import Login from "../../pages/homePage/login";
+import { useDispatch } from "react-redux";
+import { resetUser } from "../../redux/userSlice/userSlice";
+import Register from "../../pages/homePage/register";
+import Flight from "../privateHome/flightHome";
+import Hotel from "../../pages/privatePage/Hotel";
+
 import {
   faUser,
   faHotel,
   faPlane,
-  faCar,
-  faTruckPlane,
-  faTruckMoving,
-  faPersonSnowboarding,
-  faBars,
+  
   faChevronDown,
 } from "@fortawesome/free-solid-svg-icons";
+import { useSelector } from "react-redux";
+import { useState, useEffect } from "react";
 
 function HeaderHomeDefault() {
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.user);
+  const [logout, setLogout] = useState(false);
+  const [flight, setFlight] = useState(true);
+  const [hotel, setHotel] = useState(false);
+
+  useEffect(() => {
+    const initSlider = () => {
+      const hotels = document.getElementById("hotel");
+      const flights = document.getElementById("flight");
+      const icon2 = document.getElementById("icon2");
+      const icon1 = document.getElementById("icon1");
+
+      hotels.addEventListener("click", () => {
+        hotels.classList.add("bg-white", "text-black");
+        hotels.classList.remove("hover:text-slate-100", "hover:outline");
+        icon2.classList.add("text-blue-500");
+        flights.classList.remove("bg-white", "text-slate-800");
+        flights.classList.add("hover:outline", "hover:outline-1");
+        icon1.classList.remove("text-blue-500");
+      });
+
+      flights.addEventListener("click", () => {
+        flights.classList.remove("hover:outline", "hover:outline-1");
+        flights.classList.add("bg-white", "text-slate-800");
+        icon1.classList.add("text-blue-500");
+        hotels.classList.remove("bg-white", "text-black");
+        hotels.classList.add("hover:text-slate-100", "hover:outline");
+        icon2.classList.remove("text-blue-500");
+      });
+    };
+    initSlider();
+  }, []);
+
+  const handleClicklogout = () => {
+    setLogout(!logout);
+  };
+  const Logout = () => {
+    localStorage.removeItem("accessToken");
+    dispatch(resetUser());
+  };
+
   return (
     <>
       <div
         id="header"
-        className="  px-[6%] font-bold  pt-[3px] sticky top-0 z-20 text-slate-100 w-[100vw]  "
+        className="  px-[6%] py-5 font-bold  pt-[3px] sticky top-0 z-20 text-slate-100 w-[100vw]  "
       >
         <div className="flex justify-between h-[10%]  items-center ">
           <img
+            className=""
             id="img"
             src="https://d1785e74lyxkqq.cloudfront.net/_next/static/v2/f/fbab4f587da2242fbe9858fe3e5ba717.svg"
           />
@@ -43,156 +91,105 @@ function HeaderHomeDefault() {
               </div>
             </div>
             <ul className="flex space-x-6 text-[14px]  ">
-              <li className="hover:bg-black/35 p-2 rounded-md ">Khuyến mãi</li>
-              <li className="hover:bg-black/35 p-2 rounded-md ">Hỗ trợ</li>
-              <li className="hover:bg-black/35 p-2 rounded-md ">
+              <Link to="hotel">
+                <li className="hover:bg-black/25 p-2 rounded-md ">
+                  <p>Khách sạn</p>
+                </li>
+              </Link>
+              <Link to="flight">
+                <li className="hover:bg-black/25 p-2 rounded-md">Vé máy bay</li>
+              </Link>
+              <Link
+                to="cooperate"
+                className="hover:bg-black/35 p-2 rounded-md "
+              >
                 Hợp tác với chúng tôi
-              </li>
-              <li className="hover:bg-black/35 p-2 rounded-md ">
-                Đặt chổ của tôi
-              </li>
+              </Link>
+              <li className=" relative  flex items-center ">{<DropDown />}</li>
             </ul>
-            <div className="flex space-x-1 hidden  ">
-              <div>
-                <a
-                  id="login"
-                  className="flex items-center space-x-3 border border-white rounded-md p-[7px] text-[14px]  hover:bg-black/35 "
-                  href=""
+            {!user?.userName ? (
+              <div className="flex space-x-1  ">
+                {<Login />}
+                {<Register />}
+              </div>
+            ) : (
+              <div className="flex space-x-2">
+                <button
+                  onClick={handleClicklogout}
+                  className=" bg-red-500 flex  space-x-1 hover:bg-black/40 items-center p-2 rounded-md box-border   "
                 >
-                  <FontAwesomeIcon
-                    id="icon"
-                    icon={faUser}
-                    className="h-[13px] text-white"
+                  <div className=" h-[24px] bg-blue-400 w-5 flex items-center justify-center rounded-full  ">
+                    <FontAwesomeIcon icon={faUser} className="h-[11px]  " />
+                  </div>
+                  <p className="text-[14px]">{user.userName}</p>
+                  <div className="bg-white w-[2px] h-[14px] mt-[5px]  "></div>
+                  <img
+                    className="h-4"
+                    src="https://d1785e74lyxkqq.cloudfront.net/_next/static/v2/c/c00ab1f427ddf2519a3e080d9d9c1436.svg"
+                    alt=""
                   />
-                  <p>Đăng nhập</p>
-                </a>
-              </div>
-              <div>
-                <a
-                  className="flex items-center space-x-3 border border-sky-500 rounded-md bg-sky-500 p-[7px] text-[14px] px-[15px] hover:bg-sky-600 text-white  "
-                  href=""
-                >
-                  Đăng ký
-                </a>
-              </div>
-            </div>
 
-            <button className="  flex  space-x-1 hover:bg-black/40 items-center p-2 rounded-md box-border   ">
-              <div className=" h-[24px] bg-blue-400 w-5 flex items-center justify-center rounded-full  ">
-                <FontAwesomeIcon icon={faUser} className="h-[11px]  " />
+                  <FontAwesomeIcon
+                    icon={faChevronDown}
+                    className="h-[12px]  "
+                  />
+                </button>
+
+                <div className="  flex items-center justify-center w-[105px] rounded-md h-[40px] text-black hover:bg-slate-500  bg-slate-200/90 right-[91px] bottom-[20px]">
+                  <button onClick={Logout}>Đăng xuất</button>
+                </div>
               </div>
-              <p className="text-[14px]">Nguyễn</p>
-              <div
-                id="b"
-                className="bg-white w-[2px] h-[14px] mt-[5px]  "
-              ></div>
-              <img
-                className="h-4"
-                src="https://d1785e74lyxkqq.cloudfront.net/_next/static/v2/c/c00ab1f427ddf2519a3e080d9d9c1436.svg"
-                alt=""
-              />
-              <p>0</p>
-              <FontAwesomeIcon icon={faChevronDown} className="h-[12px]  " />
-            </button>
+            )}
           </div>
-        </div>
-
-        <div className="space-x-6 flex pt-[2px] text-[14px]  h-[60px] items-center    ">
-          <ul className="flex space-x-6 items-center   ">
-            <li className="hover:bg-black/25 p-2 rounded-md ">
-              <p>Khách sạn</p>
-            </li>
-            <Link to="flight">
-              <li className="hover:bg-black/25 p-2 rounded-md">Vé máy bay</li>
-            </Link>
-            <li className="hover:bg-black/25 p-2 rounded-md">Vé xe khách</li>
-            <li className="hover:bg-black/25 p-2 rounded-md">
-              Đưa đón sân bay
-            </li>
-            <li className="hover:bg-black/25 p-2 rounded-md">Cho thuê xe</li>
-            <li className="hover:bg-black/25 p-2 rounded-md">
-              Hoạt động và vui chơi
-            </li>
-          </ul>
-          <div className=" relative  flex items-center ">{<DropDown />}</div>
         </div>
       </div>
 
-      <header className=" pb-3 font-bold  text-slate-300   ">
+      <header className=" py-5   font-bold  text-slate-300   ">
         <h1 className=" text-center text-[33px] pt-[15px] text-slate-100 mb-8">
           Từ Đông Nam Á Đến Thế Giới, Trong Tầm Tay Bạn
         </h1>
-        <ul className="flex justify-center space-x-5 font-bold text-[16px] mb-2 ">
+        <ul className="flex justify-start space-x-5 pl-[200px] font-bold text-[16px] mb-2 ">
           <li className=" rounded-full  ">
-            <a
-              href=""
+            <button
+              id="hotel"
+              onClick={() => {
+                setFlight(false), setHotel(true);
+              }}
               className="flex space-x-2 items-center hover:outline-1 hover:outline hover:outline-white  hover: rounded-full hover:text-slate-100 py-2 px-3  "
             >
-              <FontAwesomeIcon icon={faHotel} className="h-[21px]" />
+              <FontAwesomeIcon icon={faHotel} id="icon2" className="h-[21px]" />
               <span>Khách sạn</span>
-            </a>
+            </button>
           </li>
-          <li className=" rounded-full bg-white text-slate-800 ">
-            <a href="" className="flex space-x-2 items-center py-2 px-3  ">
+          <li id="flight" className=" rounded-full  bg-white text-slate-800 ">
+            <button
+              onClick={() => {
+                setFlight(true), setHotel(false);
+              }}
+              className="flex space-x-2 items-center py-2 px-3  "
+            >
               <FontAwesomeIcon
                 icon={faPlane}
-                className="h-[21px] text-blue-500"
+                id="icon1"
+                className="h-[21px] text-blue-500 "
               />
               <span>Vé máy bay</span>
-            </a>
-          </li>
-          <li className=" rounded-full  ">
-            <a
-              href=""
-              className="flex space-x-2 items-center  py-2 px-3 hover:outline-1 hover:outline hover:outline-white  hover: rounded-full hover:text-slate-100 "
-            >
-              <FontAwesomeIcon icon={faCar} className="h-[21px]" />
-              <span>Vé xe khách</span>
-            </a>
-          </li>
-          <li>
-            <a
-              href=""
-              className="flex space-x-2 items-center  py-2 px-3 hover:outline-1 hover:outline hover:outline-white  hover: rounded-full hover:text-slate-100 "
-            >
-              <FontAwesomeIcon icon={faTruckPlane} className="h-[21px]" />
-              <span>Đưa đón sân bay</span>
-            </a>
-          </li>
-          <li className=" rounded-full  ">
-            <a
-              href=""
-              className="flex space-x-2 items-center  py-2 px-3  hover:outline-1 hover:outline hover:outline-white  hover: rounded-full hover:text-slate-100 "
-            >
-              <FontAwesomeIcon icon={faTruckMoving} className="h-[21px]" />
-              <span>Cho thuê xe</span>
-            </a>
-          </li>
-          <li className=" rounded-full  ">
-            <a
-              href=""
-              className="flex space-x-2 items-center  py-2 px-3 hover:outline-1 hover:outline hover:outline-white  hover: rounded-full hover:text-slate-100 "
-            >
-              <FontAwesomeIcon
-                icon={faPersonSnowboarding}
-                className="h-[21px]"
-              />
-              <span>Hoạt động và vui chơi</span>
-            </a>
-          </li>
-          <li className=" rounded-full  ">
-            <a
-              href=""
-              className="flex space-x-2 items-center  py-2 px-3 hover:outline-1 hover:outline hover:outline-white  hover: rounded-full hover:text-slate-100 "
-            >
-              <FontAwesomeIcon icon={faBars} className="h-[21px]" />
-              <span>Khác</span>
-            </a>
+            </button>
           </li>
         </ul>
 
-        <div className="border-b-[1px] border-white mx-[5%]   "></div>
+        <div className="border-b-[1px] border-white mx-[7%] mt-4"></div>
       </header>
+      {flight && (
+        <div>
+          <Flight />
+        </div>
+      )}
+      {hotel && (
+        <div>
+          <Hotel />
+        </div>
+      )}
     </>
   );
 }

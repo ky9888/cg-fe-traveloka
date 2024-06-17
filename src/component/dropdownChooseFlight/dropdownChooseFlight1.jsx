@@ -3,22 +3,31 @@ import "tippy.js/dist/tippy.css";
 import { FaPlaneDeparture } from "react-icons/fa";
 import { useState, useEffect } from "react";
 import axios from "axios"
+import { useDispatch } from "react-redux";
+import { useLocation } from "react-router-dom";
+import { setInputValue1 } from "../../redux/userSlice/valueInput";
+
 
 function DropDownChooseFlight1() {
+  
   const [searchResult,setSearchResult] = useState([]);
   //const [searchValue,setSearcValue] = useState("");
   const [showResult,setShowResult] =useState(false);
   const [select,setSelect]=useState(null);
   const [fist,setFist]=useState([])
+  const dispatch = useDispatch();
+  const location = useLocation();
+
+
 
   const fectProducts = async () => {
     await axios
-      .get("https://660ab189ccda4cbc75db8c57.mockapi.io/api/user")
+      .get("http://localhost:4000/api/auth/allFlight")
       .then((reponse) => {
         console.log(reponse.data);
-        setSearchResult(reponse.data);
-        if(reponse.data.length > 0) {
-          const firstItem = reponse.data[1]; // Lấy phần tử đầu tiên
+        setSearchResult(reponse.data.data);
+        if(reponse.data.data. length > 0) {
+          const firstItem = reponse.data.data[1]; // Lấy phần tử đầu tiên
           const first=firstItem.name
           setFist(first); // Cập nhật state searchResult với phần tử đầu tiên
         }
@@ -49,6 +58,11 @@ function DropDownChooseFlight1() {
   const handleHideResult=()=>{
     setShowResult(false) 
   }
+  useEffect(() => {
+    // Dispatch giá trị khi URL thay đổi
+    const value = select !== null ? select : fist;
+    dispatch(setInputValue1(value));
+  }, [location, select, fist, dispatch]);
 
   return (
     <div className=" relative space-y-2 text-black" >

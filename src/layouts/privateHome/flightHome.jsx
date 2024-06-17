@@ -14,49 +14,53 @@ import DateFlight3 from "../../component/componentFlight/dateFlight3";
 import DateFlight4 from "../../component/componentFlight/dateFlight4";
 import { HiMagnifyingGlass } from "react-icons/hi2";
 import { AiOutlinePlus } from "react-icons/ai";
+import { Link } from "react-router-dom";
+
 import {
   faHotel,
   faPlane,
-  faCar,
-  faTruckPlane,
-  faTruckMoving,
-  faPersonSnowboarding,
-  faBars,
+ 
 } from "@fortawesome/free-solid-svg-icons";
 
 import { useState, useEffect, useRef } from "react";
 
 function Flight() {
   const [showResult, setShowResult] = useState(false);
-
-  const cos = document.getElementById("cos");
-  
   const cosRef = useRef(null);
   const sinRef = useRef(null);
+  const tanRef = useRef(null);
+  const cosinRef = useRef(null);
 
+  
   const handleChange1 = () => {
+    const cos=cosinRef.current
     setShowResult(true);
     cos.style.position = "fixed";
     cos.style.top = "0";
     cos.style.left = "0";
     cos.style.width = "100vw";
     cos.style.height = "100vh";
-    cos.style.backgroundColor = "rgba(0, 0, 0, 0.9)";
+    cos.style.backgroundColor = "rgba(0, 0, 0, 0.7)";
     cos.style.zIndex = "40";
   };
   const handleChange2 = () => {
-    setShowResult(false);
-    cos.style.position = "";
-    cos.style.top = "";
-    cos.style.left = "";
-    cos.style.width = "";
-    cos.style.height = "";
-    cos.style.backgroundColor = "";
-    cos.style.zIndex = "";
+    if (tanRef.current && tanRef.current.contains(event.target)) {
+      const cos=cosinRef.current
+      setShowResult(false);
+      cos.style.position = "";
+      cos.style.top = "";
+      cos.style.left = "";
+      cos.style.width = "";
+      cos.style.height = "";
+      cos.style.backgroundColor = "";
+      cos.style.zIndex = "";
+    }
   };
+  
 
   useEffect(() => {
     const handleClickOutside = (event) => {
+      const cos=cosinRef.current
       if (
         cosRef.current &&
         !cosRef.current.contains(event.target) &&
@@ -71,7 +75,6 @@ function Flight() {
         cos.style.height = "";
         cos.style.backgroundColor = "";
         cos.style.zIndex = "";
-        
       }
     };
 
@@ -83,6 +86,7 @@ function Flight() {
 
   return (
     <main className=" font-bold text-slate-100 pb-[100px]  ">
+      <div ref={cosinRef} ></div>
       <div className="px-[90px] space-y-4 pt-1">
         <div className="flex items-center justify-between ">
           <div className="flex space-x-2">
@@ -98,20 +102,20 @@ function Flight() {
               Nhiều thành phố
             </button>
             {showResult && (
-              <div id="sin" className="">
+              <div className="">
                 <div
                   id="sin"
                   ref={cosRef}
-                  className="absolute top-[191px] z-50 py-3 px-3 bg-slate-950 left-[51px] w-[91%] outline outline-2 outline-slate-200 rounded-md"
+                  className="absolute top-[191px] z-50 py-3 px-3 bg-slate-950 left-[59px] w-[91%] outline outline-2 outline-slate-200 rounded-md"
                 >
-                  <ul className="flex justify-center space-x-5 font-bold text-[16px] mb-2 ">
+                  <ul className="flex justify-start pl-[200px] space-x-5 font-bold text-[16px] mb-2 ">
                     <li className=" rounded-full  ">
                       <a
                         href=""
                         className="flex space-x-2 items-center hover:outline-1 hover:outline hover:outline-white  hover: rounded-full hover:text-slate-100 py-2 px-3  "
                       >
                         <FontAwesomeIcon icon={faHotel} className="h-[21px]" />
-                        <span>Khách sạn</span>
+                        <Link ><span>Khách sạn</span></Link>
                       </a>
                     </li>
                     <li className=" rounded-full bg-white text-slate-800 ">
@@ -126,60 +130,10 @@ function Flight() {
                         <span>Vé máy bay</span>
                       </a>
                     </li>
-                    <li className=" rounded-full  ">
-                      <a
-                        href=""
-                        className="flex space-x-2 items-center  py-2 px-3 hover:outline-1 hover:outline hover:outline-white  hover: rounded-full hover:text-slate-100 "
-                      >
-                        <FontAwesomeIcon icon={faCar} className="h-[21px]" />
-                        <span>Vé xe khách</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href=""
-                        className="flex space-x-2 items-center  py-2 px-3 hover:outline-1 hover:outline hover:outline-white  hover: rounded-full hover:text-slate-100 "
-                      >
-                        <FontAwesomeIcon
-                          icon={faTruckPlane}
-                          className="h-[21px]"
-                        />
-                        <span>Đưa đón sân bay</span>
-                      </a>
-                    </li>
-                    <li className=" rounded-full  ">
-                      <a
-                        href=""
-                        className="flex space-x-2 items-center  py-2 px-3  hover:outline-1 hover:outline hover:outline-white  hover: rounded-full hover:text-slate-100 "
-                      >
-                        <FontAwesomeIcon
-                          icon={faTruckMoving}
-                          className="h-[21px]"
-                        />
-                        <span>Cho thuê xe</span>
-                      </a>
-                    </li>
-                    <li className=" rounded-full  ">
-                      <a
-                        href=""
-                        className="flex space-x-2 items-center  py-2 px-3 hover:outline-1 hover:outline hover:outline-white  hover: rounded-full hover:text-slate-100 "
-                      >
-                        <FontAwesomeIcon
-                          icon={faPersonSnowboarding}
-                          className="h-[21px]"
-                        />
-                        <span>Hoạt động và vui chơi</span>
-                      </a>
-                    </li>
-                    <li className=" rounded-full  ">
-                      <a
-                        href=""
-                        className="flex space-x-2 items-center  py-2 px-3 hover:outline-1 hover:outline hover:outline-white  hover: rounded-full hover:text-slate-100 "
-                      >
-                        <FontAwesomeIcon icon={faBars} className="h-[21px]" />
-                        <span>Khác</span>
-                      </a>
-                    </li>
+                   
+                    
+                   
+                   
                   </ul>
 
                   <div className="border-b-[1px]   "></div>
@@ -187,12 +141,13 @@ function Flight() {
                   <div className="flex justify-between mt-[15px]">
                     <div className="flex ml-[25px] space-x-2 h-full">
                       <button
+                        ref={tanRef}
                         onClick={handleChange2}
-                        className="bg-blue-500 text-[14px] px-2 py-1 rounded-full"
+                        className="border border-white text-[14px] px-2 py-1 rounded-full"
                       >
                         Một chiều/ Khứ hồi
                       </button>
-                      <button className="bg-black/35 text-[14px] p-2   rounded-full  ">
+                      <button className=" text-[14px] p-2 bg-blue-500   rounded-full  ">
                         Nhiều thành phố
                       </button>
                     </div>
@@ -269,18 +224,18 @@ function Flight() {
           </div>
         </div>
 
-        <div className="flex items-center space-x-5  ">
+        <div className="flex items-center   ">
           <div className="flex ">
             <div>{<DropDownChooseFlight />}</div>
             <div>{<DropDownChooseFlight1 />}</div>
           </div>
-          <div className="flex ">
+          <div className="flex ml-[200px] mr-5">
             <div>{<DropDownDate1 />}</div>
             <div>{<DropDownDate2 />}</div>
           </div>
-          <div className=" bg-orange-500 h-[50px] w-[50px] flex items-center justify-center rounded-2xl mt-7  border-[3px] border-slate-500 ">
+          <Link  to="flightSearch" className=" bg-orange-500 h-[50px] w-[50px] flex items-center justify-center rounded-2xl mt-7  border-[3px] border-slate-500 ">
             <CiSearch className="text-[25px] text-white" />
-          </div>
+          </Link>
         </div>
         <div className="flex items-center text-[14px]   space-x-4">
           <span>Tìm kiếm</span>

@@ -13,10 +13,10 @@ function ChooseFlight() {
 
   const fectProducts = async () => {
     await axios
-      .get("https://660ab189ccda4cbc75db8c57.mockapi.io/api/user")
+      .get("http://localhost:4000/api/auth/allFlight")
       .then((reponse) => {
         console.log(reponse.data);
-        setSearchResult(reponse.data);
+        setSearchResult(reponse.data.data);
         
       })
 

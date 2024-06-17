@@ -2,9 +2,9 @@ import "./Flight.css";
 import { useEffect } from "react";
 import { MdOutlineChevronLeft } from "react-icons/md";
 import { MdKeyboardArrowRight } from "react-icons/md";
-import OneCity from "../component/componentFlight2/oneCity";
-import Header from "../layouts/public/header";
-import Footer from "../layouts/public/footer";
+import OneCity from "../../component/componentFlight2/oneCity";
+import Header from "../../layouts/public/header";
+import Footer from "../../layouts/public/footer";
 
 function Flight() {
   useEffect(() => {
@@ -97,7 +97,7 @@ function Flight() {
             </button>
           </div>
         </div>
-        <div className="w-[100vw] px-[200px] border-blue-500  relative top-[-65px]   ">
+        <div className="w-[100vw] px-[300px] border-blue-500  relative top-[-65px]   ">
           {<OneCity />}
         </div>
 

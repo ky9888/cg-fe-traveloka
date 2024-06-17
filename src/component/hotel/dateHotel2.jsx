@@ -2,14 +2,15 @@ import { useState,useEffect } from "react";
 import DatePicker from "react-datepicker";
 import { FaRegCalendarDays } from "react-icons/fa6";
 import { useDispatch } from "react-redux";
-import { setdateFlight2 } from "../../redux/userSlice/valueInput";
+import { setDateHotel2 } from "../../redux/userSlice/valueHotelInput";
 
 import "react-datepicker/dist/react-datepicker.css";
 
-function DropDownDate1() {
+function DateHotel2() {
   const [selectData1, setSelectData1] = useState(null);
   const [dateCurrent,setDateCurrent]=useState(null);
   const dispatch=useDispatch()
+
   
   useEffect(() => {
     const currentDate = new Date();
@@ -25,9 +26,8 @@ function DropDownDate1() {
     setSelectData1(date);
     console.log(selectData1);
     const formattedDate = formatDate(date);
-    dispatch(setdateFlight2(formattedDate))
+    dispatch(setDateHotel2(formattedDate))
     console.log(formattedDate);
-   
   };
   const formatDate = (date) => {
     const day = String(date.getDate()).padStart(2, '0');
@@ -38,20 +38,20 @@ function DropDownDate1() {
 
 
   return (
-    <div className=""  >
-      <p className="text-[14px] mb-2">Khứ hồi</p>
-      <div className="relative">
-      <FaRegCalendarDays className="absolute top-3 left-3 z-[1] text-blue-500 text-[25px]" />
-      <DatePicker
-       className="h-[50px] text-slate-800  w-[250px] outline-0 pl-[50px] rounded-r-2xl border-[3px] border-slate-500 border-l-2 "
-        selected={dateCurrent }
-        onChange={handleChange}
-        dateFormat="dd/MM/yyyy"
-        minDate={new Date()} 
-      />
+    <div className="mt-3 space-y-[15px]">
+      <p className="text-[14px] text-white font-medium ">Ngày trả phòng:</p>
+      <div className="relative outline ouline-[3px] outline-slate-500">
+        <FaRegCalendarDays className="absolute top-3 left-3 z-[1] text-blue-500 text-[25px]" />
+        <DatePicker
+          className="h-[50px] text-slate-800 w-[300px] outline-0 pl-[50px]  "
+          selected={dateCurrent}
+          onChange={handleChange}
+          minDate={new Date()} 
+          dateFormat="dd/MM/yyyy"
+        />
       </div>
     </div>
   );
 }
 
-export default DropDownDate1;
+export default DateHotel2;

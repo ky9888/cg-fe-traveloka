@@ -1,39 +1,37 @@
 import HeadlessTippy from "@tippyjs/react/headless";
 import "tippy.js/dist/tippy.css";
-import { MdFlightLand } from "react-icons/md";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { useLocation } from "react-router-dom";
+import { setInputHotel } from "../../../redux/userSlice/valueHotelInput";
 
-
-import { setInputValue1 } from "../../redux/userSlice/valueInput";
-
-
-function ChooseFlight() {
+function DropPageHotel() {
   const [searchResult, setSearchResult] = useState([]);
-  //const [searchValue,setSearcValue] = useState("");
+  // const [searchValue,setSearcValue] = useState("");
   const [showResult, setShowResult] = useState(false);
   const [select, setSelect] = useState(null);
   const [fist, setFist] = useState([]);
   const dispatch = useDispatch();
   const location = useLocation();
+  
+
 
   const fectProducts = async () => {
     await axios
-      .get("http://localhost:4000/api/auth/allFlight")
+      .get("http://localhost:4000/api/auth/allHotel")
       .then((reponse) => {
-        console.log(reponse.data);
+        console.log("res", reponse.data.data);
         setSearchResult(reponse.data.data);
         if (reponse.data.data.length > 0) {
           const firstItem = reponse.data.data[0]; // Lấy phần tử đầu tiên
-          const first = firstItem.name;
+          const first = `${firstItem.city}, ${firstItem.Address}`;
           setFist(first); // Cập nhật state searchResult với phần tử đầu tiên
         }
       })
 
       .catch((error) => {
-        console.log(error);
+        console.log("thất bại", error);
       });
   };
 
@@ -54,12 +52,13 @@ function ChooseFlight() {
   useEffect(() => {
     // Dispatch giá trị khi URL thay đổi
     const value = select !== null ? select : fist;
-    dispatch(setInputValue1(value));
+    dispatch(setInputHotel(value));
   }, [location, select, fist, dispatch]);
 
+
   return (
-    <div className="  relative  text-black ">
-      <span className="text-[14px] text-slate-700 ">Đến </span>
+    <div className=" z-[2] text-black space-y-3 mt-3 ">
+     
       <HeadlessTippy
         zIndex={1}
         placement="bottom"
@@ -67,21 +66,27 @@ function ChooseFlight() {
         visible={showResult && searchResult.length > 0}
         render={(attrs) => (
           <div tabIndex="-1" {...attrs}>
-            <div>
-              <div className="rounded-tr-lg bg-white w-[580px] border border-slate-400 absolute top-[-8px]  left-[-125px] rounded-md overflow-y-auto max-h-[320px]    ">
-                <p className="text-[14px] p-2 font-bold">
-                  Thành phố hoặc sân bay phổ biến
+            <div className="">
+              <div className=" shadow-md rounded-lg bg-white w-[920px]  absolute top-[-8px]  left-[-460px]  overflow-y-auto max-h-[400px]    ">
+                <p className="text-[14px] p-2 text-slate-600 font-bold">
+                  Điểm đếm phổ biến
                 </p>
                 {searchResult.map((item) => (
-                  <div key={item.id}>
+                  <div key={item.id} className="z-10 border-t-[1px] border-black ">
                     <button
-                      onClick={() => handleSelect(item.name)}
-                      className="button w-full text-start pl-4  hover:bg-slate-300 p-2  "
+                      onClick={() => handleSelect(`${item.city}, ${item.Address}`)}
+                      className="button w-full text-start pl-4 flex items-center justify-between  hover:bg-slate-300 p-2  "
                     >
-                      <p className="text-[14px] font-bold">{item.name}</p>
-                      <p className="text-[12px] font-medium text-slate-500">
-                        {item.note}
-                      </p>
+                      <div>
+                        <p className="text-[14px] font-bold">{item.city}</p>
+                        <p className="text-[12px] font-medium text-slate-500">
+                          {item.Address}
+                        </p>
+                      </div>
+                      <div>
+                        <p className="text-[14px] border border-blue-500 px-4 py-1 text-center text-blue-500 font-medium rounded-full ">{item.noteCity}</p>
+                        <p className="text-[12px] font-medium text-slate-500">{item.noteHotel}</p>
+                      </div>
                     </button>
                   </div>
                 ))}
@@ -91,12 +96,12 @@ function ChooseFlight() {
         )}
         onClickOutside={handleHideResult}
       >
-        <form className="button flex bg-white  h-[40px]  w-[250px] border-b-[1px] border-slate-400 hover:border-slate-800   ">
+        <form className=" flex bg-white  h-[40px]   rounded-lg border border-slate-500 ">
           <label
             htmlFor="button3"
             className="flex items-center w-[30px] justify-start text-blue-500"
           >
-            <MdFlightLand className="text-[20px] text-slate-500  " />
+            <img src="https://d1785e74lyxkqq.cloudfront.net/_next/static/v2/7/7f57d24fd3db681418a3694bd71cb93b.svg" alt="" />
           </label>
           <input
             id="button3"
@@ -104,9 +109,9 @@ function ChooseFlight() {
             value={select !== null ? select : fist}
             onChange={chang}
             onFocus={() => setShowResult(true)}
-            className="w-full h-full outline-0  text-[14px] font-medium    "
+            className="w-full h-full  outline-0  text-[14px] font-medium rounded-lg   "
             type="text"
-            placeholder="Chọn Thành Phố"
+            placeholder=" Thành Phố,khách sạn và điểm đến"
           />
         </form>
       </HeadlessTippy>
@@ -114,4 +119,4 @@ function ChooseFlight() {
   );
 }
 
-export default ChooseFlight;
+export default DropPageHotel;
