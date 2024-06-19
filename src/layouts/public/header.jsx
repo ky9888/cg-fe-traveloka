@@ -37,9 +37,9 @@ function Header() {
             <ul className="flex space-x-6 text-[14px]  ">
               <li className="hover:bg-black/35 p-2 rounded-md ">Khuyến mãi</li>
               <li className="hover:bg-black/35 p-2 rounded-md ">Hỗ trợ</li>
-              <li className="hover:bg-black/35 p-2 rounded-md ">
+              <Link to='/cooperate' className="hover:bg-black/35 p-2 rounded-md ">
                 Hợp tác với chúng tôi
-              </li>
+              </Link>
               <li className="hover:bg-black/35 p-2 rounded-md ">
                 Đặt chổ của tôi
               </li>

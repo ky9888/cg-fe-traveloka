@@ -44,8 +44,8 @@ function HomeFlight() {
 
   //bg-[url('https://ik.imagekit.io/tvlk/image/imageResource/2023/09/27/1695776209619-17a750c3f514f7a8cccde2d0976c902a.png?tr=q-75')] h-screen   bg-center bg-no-repeat filter brightness-110 contrast-125
   return (
-    <div>
-      <div className="relative  ">
+    <div className=" max-sm-[300px]:bg-red-100  " >
+      <div className="relative max-w-full max-h-screen ">
         <div className="absolute z-[-1] h-[100vh] ">
           <img
             className=""

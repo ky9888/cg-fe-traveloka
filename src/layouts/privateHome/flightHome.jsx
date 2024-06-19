@@ -224,7 +224,7 @@ function Flight() {
           </div>
         </div>
 
-        <div className="flex items-center   ">
+        <div className="flex items-center md:w-32  ">
           <div className="flex ">
             <div>{<DropDownChooseFlight />}</div>
             <div>{<DropDownChooseFlight1 />}</div>
