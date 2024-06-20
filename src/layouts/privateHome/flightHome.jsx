@@ -233,7 +233,7 @@ function Flight() {
             <div>{<DropDownDate1 />}</div>
             <div>{<DropDownDate2 />}</div>
           </div>
-          <Link  to="flightSearch" className=" bg-orange-500 h-[50px] w-[50px] flex items-center justify-center rounded-2xl mt-7  border-[3px] border-slate-500 ">
+          <Link  to="flightSearch" className=" bg-orange-500 p-2 h-[50px] w-[50px] flex items-center justify-center rounded-2xl mt-7  border-[3px] border-slate-500 ">
             <CiSearch className="text-[25px] text-white" />
           </Link>
         </div>

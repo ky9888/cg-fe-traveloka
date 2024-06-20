@@ -9,7 +9,7 @@ function FlightID() {
 
   const fectProducts = async () => {
     await axios
-      .get(`http://localhost:4000/api/auth/flightID/${id}`)
+      .get(`https://cg-be-traveloka.onrender.com/api/auth/flightID/${id}`)
       .then((reponse) => {
         console.log("res", reponse.data);
         setShowid(reponse.data);

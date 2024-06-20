@@ -87,7 +87,7 @@ function Register() {
     onSubmit:  (values) => {
       axios({
         method: 'POST',
-        url: 'http://localhost:4000/api/auth/singup',
+        url: 'https://cg-be-traveloka.onrender.com/api/auth/singup',
         data: values
       })
         .then(function (res) {

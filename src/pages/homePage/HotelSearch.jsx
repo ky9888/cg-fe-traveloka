@@ -44,7 +44,7 @@ function HotelSearch() {
     try {
       console.log("input:", inputhotel);
       const response = await axios.get(
-        "http://localhost:4000/api/auth/allRoomHotel"
+        "https://cg-be-traveloka.onrender.com/api/auth/allRoomHotel"
       );
       const hotel = response.data.data;
       console.log("hotell", hotel);

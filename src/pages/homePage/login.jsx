@@ -86,7 +86,7 @@ function Login() {
     onSubmit: (values) => {
       axios({
         method: "POST",
-        url: "http://localhost:4000/api/auth/singin",
+        url: "https://cg-be-traveloka.onrender.com/api/auth/singin",
         data: values,
       })
         .then(function (res) {

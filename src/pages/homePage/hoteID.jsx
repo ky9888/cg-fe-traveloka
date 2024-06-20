@@ -36,7 +36,7 @@ function Hotelid() {
   console.log(id);
   const fectProducts = async () => {
     await axios
-      .get(`http://localhost:4000/api/auth/getRoomHotel/${id}`)
+      .get(`https://cg-be-traveloka.onrender.com/api/auth/getRoomHotel/${id}`)
       .then((reponse) => {
         console.log("res", reponse.data);
         setShowid(reponse.data);
@@ -82,8 +82,9 @@ function Hotelid() {
           </p>
         </div>
       </div>
+      <p className="ml-[25%] font-bold text-[25px] mt-10">Khách sạn của bạn:</p>
 
-      <div key={showid._id} className=" ml-[25%] mt-10 flex justify-between  shadow-custom-rgba w-[50%] ">
+      <div key={showid._id} className=" ml-[25%] mt-5 flex justify-between  shadow-custom-rgba w-[50%] ">
         <div>
             <img
               className="rounded-l-md w-[400px]"

@@ -13,7 +13,7 @@ function DropDownChooseFlight3() {
 
   const fectProducts = async () => {
     await axios
-      .get("http://localhost:4000/api/auth/allFlight")
+      .get("https://cg-be-traveloka.onrender.com/api/auth/allFlight")
       .then((reponse) => {
         console.log(reponse.data);
         setSearchResult(reponse.data.data);

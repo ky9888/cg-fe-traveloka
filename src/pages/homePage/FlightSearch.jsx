@@ -40,7 +40,7 @@ function FlightSearch() {
      
       console.log("input", select);
       const response = await axios.get(
-        "http://localhost:4000/api/auth/getTicker"
+        "https://cg-be-traveloka.onrender.com/api/auth/getTicker"
       );
       const flight = response.data;
     
