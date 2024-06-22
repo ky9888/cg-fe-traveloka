@@ -40,7 +40,7 @@ function DropDown() {
       <button
         id="button"
         onClick={handleDropdownToggle}
-        className="  rounded-md hover:bg-black/25 flex items-center p-[6px] space-x-2   "
+        className="  rounded-md hover:bg-black/25 flex items-center max-lg:p-1 p-[6px] space-x-2   "
       >
         <span>More</span>
         <FontAwesomeIcon icon={faChevronDown} className="h-[8px] " />

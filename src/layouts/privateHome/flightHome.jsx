@@ -16,11 +16,7 @@ import { HiMagnifyingGlass } from "react-icons/hi2";
 import { AiOutlinePlus } from "react-icons/ai";
 import { Link } from "react-router-dom";
 
-import {
-  faHotel,
-  faPlane,
- 
-} from "@fortawesome/free-solid-svg-icons";
+import { faHotel, faPlane } from "@fortawesome/free-solid-svg-icons";
 
 import { useState, useEffect, useRef } from "react";
 
@@ -31,9 +27,8 @@ function Flight() {
   const tanRef = useRef(null);
   const cosinRef = useRef(null);
 
-  
   const handleChange1 = () => {
-    const cos=cosinRef.current
+    const cos = cosinRef.current;
     setShowResult(true);
     cos.style.position = "fixed";
     cos.style.top = "0";
@@ -45,7 +40,7 @@ function Flight() {
   };
   const handleChange2 = () => {
     if (tanRef.current && tanRef.current.contains(event.target)) {
-      const cos=cosinRef.current
+      const cos = cosinRef.current;
       setShowResult(false);
       cos.style.position = "";
       cos.style.top = "";
@@ -56,11 +51,10 @@ function Flight() {
       cos.style.zIndex = "";
     }
   };
-  
 
   useEffect(() => {
     const handleClickOutside = (event) => {
-      const cos=cosinRef.current
+      const cos = cosinRef.current;
       if (
         cosRef.current &&
         !cosRef.current.contains(event.target) &&
@@ -85,10 +79,10 @@ function Flight() {
   }, []);
 
   return (
-    <main className=" font-bold text-slate-100 pb-[100px]  ">
-      <div ref={cosinRef} ></div>
-      <div className="px-[90px] space-y-4 pt-1">
-        <div className="flex items-center justify-between ">
+    <main className=" font-bold text-slate-100 pb-[100px] max-xl:pb-[10px] max-lg:flex max-lg:justify-center  ">
+      <div ref={cosinRef}></div>
+      <div className="px-[90px] max-lg:space-y-1 space-y-4 pt-1 max-xl:px-10">
+        <div className="flex items-center justify-between max-lg:block ">
           <div className="flex space-x-2">
             <button className="bg-blue-500 text-[14px]  p-2 rounded-full">
               Một chiều/ Khứ hồi
@@ -106,16 +100,18 @@ function Flight() {
                 <div
                   id="sin"
                   ref={cosRef}
-                  className="absolute top-[191px] z-50 py-3 px-3 bg-slate-950 left-[59px] w-[91%] outline outline-2 outline-slate-200 rounded-md"
+                  className="absolute top-[191px] max-sm:pl-0  max-md:left-[30px] z-50 py-3 px-3 bg-slate-950 left-[59px] w-[91%] outline outline-2 outline-slate-200 rounded-md"
                 >
-                  <ul className="flex justify-start pl-[200px] space-x-5 font-bold text-[16px] mb-2 ">
+                  <ul className="flex max-sm:pl-[50px] justify-start pl-[200px] max-sm:space-x-1   max-md:pl-[100px] space-x-5 font-bold text-[16px] mb-2 ">
                     <li className=" rounded-full  ">
                       <a
                         href=""
                         className="flex space-x-2 items-center hover:outline-1 hover:outline hover:outline-white  hover: rounded-full hover:text-slate-100 py-2 px-3  "
                       >
                         <FontAwesomeIcon icon={faHotel} className="h-[21px]" />
-                        <Link ><span>Khách sạn</span></Link>
+                        <Link>
+                          <span>Khách sạn</span>
+                        </Link>
                       </a>
                     </li>
                     <li className=" rounded-full bg-white text-slate-800 ">
@@ -130,16 +126,12 @@ function Flight() {
                         <span>Vé máy bay</span>
                       </a>
                     </li>
-                   
-                    
-                   
-                   
                   </ul>
 
                   <div className="border-b-[1px]   "></div>
 
-                  <div className="flex justify-between mt-[15px]">
-                    <div className="flex ml-[25px] space-x-2 h-full">
+                  <div className="flex  justify-between  mt-[15px] max-lg:block max-lg:space-y-2 ">
+                    <div className="flex ml-[25px]  space-x-2 h-full ">
                       <button
                         ref={tanRef}
                         onClick={handleChange2}
@@ -151,18 +143,18 @@ function Flight() {
                         Nhiều thành phố
                       </button>
                     </div>
-                    <div className="flex items-center space-x-2 mr-[15px]">
+                    <div className="flex items-center max-sm:ml-1 space-x-2 mr-[15px] max-lg:ml-7 max-md:block max-md:space-y-2 ">
                       <div>{<DropDownPassenger />}</div>
-                      <div>{<DropDownSelect />}</div>
+                      <div className="max-md:space-x-0">{<DropDownSelect />}</div>
                     </div>
                   </div>
-                  <div className=" px-5 pt-5   rounded-lg     ">
-                    <div className="flex relative  mt-5   ">
+                  <div className=" px-5 pt-5 max-sm:pl-1   rounded-lg     ">
+                    <div className="flex relative  mt-5 max-lg:block  ">
                       <div className="flex ">
-                        <div>{<DropDownChooseFlight />}</div>
-                        <div>{<DropDownChooseFlight1 />}</div>
+                        <div className="w-[250px] ">{<DropDownChooseFlight />}</div>
+                        <div className="w-[250px] ">{<DropDownChooseFlight1 />}</div>
                       </div>
-                      <div className="w-full ml-[200px] space-y ">
+                      <div className="w-full ml-[100px] space-y max-lg:w-[250px] max-lg:mt-1 max-lg:ml-1">
                         <p className="text-[15px]">Ngày đi</p>
                         <div className="w-full bg-white rounded-lg mt-[8px] border-[3px] border-slate-500     ">
                           {<DateFlight3 />}
@@ -170,11 +162,11 @@ function Flight() {
                       </div>
                     </div>
                     <div className="flex relative  mt-5  ">
-                      <div className="flex ">
-                        <div>{<DropDownChooseFlight2 />}</div>
+                      <div className="flex max-sm:block  ">
+                        <div className="">{<DropDownChooseFlight2 />}</div>
                         <div>{<DropDownChooseFlight3 />}</div>
                       </div>
-                      <div className="w-full ml-[200px] space-y ">
+                      <div className="w-full ml-[100px] space-y max-lg:hidden ">
                         <p className="text-[15px]">Khứ hồi</p>
                         <div className="w-full bg-white rounded-lg mt-[8px] border-[3px] border-slate-500     ">
                           {<DateFlight4 />}
@@ -182,7 +174,7 @@ function Flight() {
                       </div>
                     </div>
                     <div className="flex justify-between mt-5 ">
-                      <p className="flex items-center space-x-2 text-slate-100 font-bold ml-5 my-4 border-dashed border-2 border-white rounded-lg px-[100px] py-2">
+                      <p className="flex items-center space-x-2 text-slate-100 font-bold ml-5 my-4 border-dashed border-2 max-lg:hidden border-white rounded-lg px-[100px] py-2">
                         <AiOutlinePlus />
                         <span>Thêm chuyến bay khác</span>
                       </p>
@@ -194,7 +186,7 @@ function Flight() {
                         </div>
                       </div>
                     </div>
-                    <div className="flex justify-between mt-6">
+                    <div className="flex justify-between mt-6 max-lg:hidden">
                       <div className="flex items-center text-[14px]   space-x-4">
                         <span>Tìm kiếm</span>
                         <div className="flex items-center space-x-2 bg-slate-500/60 p-2 rounded-md">
@@ -218,26 +210,29 @@ function Flight() {
               </div>
             )}
           </div>
-          <div className="flex items-center space-x-2">
+          <div className="flex items-center space-x-2 max-md:space-x-0 max-lg:pt-1 max-md:block max-md:space-y-2">
             <div>{<DropDownPassenger />}</div>
             <div>{<DropDownSelect />}</div>
           </div>
         </div>
 
-        <div className="flex items-center md:w-32  ">
-          <div className="flex ">
+        <div className="flex items-center justify-between  max-lg:block max-lg:mt-0 max  ">
+          <div className="flex  ">
             <div>{<DropDownChooseFlight />}</div>
             <div>{<DropDownChooseFlight1 />}</div>
           </div>
-          <div className="flex ml-[200px] mr-5">
+          <div className="flex  mr-5 max-2xl:ml-10 max-lg:ml-0   ">
             <div>{<DropDownDate1 />}</div>
             <div>{<DropDownDate2 />}</div>
+            <Link
+              to="flightSearch"
+              className=" max-sm:block max-xl:ml-[10px] ml-5 bg-orange-500 p-2 max-lg:h-[40px] h-[50px] w-[50px] flex items-center justify-center rounded-2xl mt-7  border-[3px] border-slate-500 "
+            >
+              <CiSearch className="text-[25px] text-white" />
+            </Link>
           </div>
-          <Link  to="flightSearch" className=" bg-orange-500 p-2 h-[50px] w-[50px] flex items-center justify-center rounded-2xl mt-7  border-[3px] border-slate-500 ">
-            <CiSearch className="text-[25px] text-white" />
-          </Link>
         </div>
-        <div className="flex items-center text-[14px]   space-x-4">
+        <div className="flex items-center text-[14px] max-xl:invisible   space-x-4">
           <span>Tìm kiếm</span>
           <div className="flex items-center space-x-2 bg-slate-500/60 p-2 rounded-md">
             <TbWorld />

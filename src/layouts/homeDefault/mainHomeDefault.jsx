@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import MainSlide from "../../component/mainSlide";
-import { TfiEmail } from "react-icons/tfi";
+
 import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
 
 function MainHomeDefault() {
@@ -71,7 +71,7 @@ function MainHomeDefault() {
               <p>Đặt trước, Trả sau</p>
             </li>
           </ul>
-          <div className=" flex mt-[50px] mb-[30px] space-x-4 ">
+          <div className=" flex mt-[50px] mb-[30px] space-x-4 max-sm:hidden ">
             <img
               className="h-[25px] "
               src="https://ik.imagekit.io/tvlk/image/imageResource/2024/03/21/1711002136291-9aa9885d81f33cafc62a860c5fc2e506.png?_src=imagekit&tr=q-40,h-24"
@@ -81,16 +81,8 @@ function MainHomeDefault() {
               Các chuyến bay phổ biến
             </h1>
           </div>
-          <ul className="flex space-x-4 text-blue-500 items-center">
-            <li className="bg-[rgba(1,148,243,1.00)] p-2 rounded-full text-white">
-              Việt Nam
-            </li>
-            <li className="p-2 rounded-full bg-slate-100">Thái Lan</li>
-            <li className="p-2 rounded-full bg-slate-100">Singapore</li>
-            <li className="p-2 rounded-full bg-slate-100">Malaysia</li>
-            <li className="p-2 rounded-full bg-slate-100">Hàn Quốc</li>
-          </ul>
-          <div className="flex space-x-2 my-6">
+          
+          <div className="flex space-x-2 my-6 max-sm:hidden">
             <div className="relative w-[300px] shadow-xl">
               <p className="absolute top-0 left-0 text-white bg-black p-1 rounded-tl-md rounded-br-md">
                 ONEWAY
@@ -180,23 +172,16 @@ function MainHomeDefault() {
               <p className="ml-1 text-orange-500">VND595.241</p>
             </div>
           </div>
-          <div className=" m-auto w-[250px] bg-slate-100 h-[40px] flex items-center justify-center rounded-md text-blue-500  ">
-            <div>
-              <span>Đặt vé máy bay ngay</span>
-              <FontAwesomeIcon icon={faAngleRight} />
-            </div>
-          </div>
-          <div className="flex space-x-3 mt-10 ">
+         
+          <div className="flex space-x-3 mt-10 max-2xl:hidden ">
             <img
               className="h-[25px] mt-[3px] "
               src="https://ik.imagekit.io/tvlk/image/imageResource/2023/06/01/1685631988109-4e2f068146d14d35aa47c5e9e9add5ff.png?_src=imagekit&tr=q-40,h-24"
               alt=""
             />
-            <p className=" text-slate-700 font-bold text-[25px] mb-[20px]">
-              Tái khám phá bản thân ở châu Á và những nơi khác
-            </p>
+           
           </div>
-          <div className="grid gap-6 grid-cols-3 ">
+          <div className="grid gap-6 grid-cols-3 max-2xl:hidden">
             <div className="relative  h-[210px] w-[390px]">
               <img
                 className="rounded-md w-full h-full"
@@ -440,10 +425,10 @@ function MainHomeDefault() {
             />
           </div>
         </div>
-        <h1 className=" text-[24px] text-slate-800 mt-[100px]">
+        <h1 className=" text-[24px] text-slate-800 mt-[100px] max-sm:hidden">
           Lý do nên đặt chỗ với Traveloka?
         </h1>
-        <div className="flex space-x-3 mt-6 ">
+        <div className="flex space-x-3 mt-6 max-sm:hidden ">
           <div className="flex w-[400px]  items-center justify-center p-3 space-x-2 rounded-md shadow-2xl">
             <img
               src="https://ik.imagekit.io/tvlk/image/imageResource/2023/06/14/1686718236517-bf9a3e5ffd872b781ba2e56e93fe8840.webp?tr=h-64,q-75,w-64"
@@ -487,11 +472,11 @@ function MainHomeDefault() {
               </p>
             </div>
           </div>
-        </div>
-        <h1 className=" text-[24px] text-slate-800 mt-[100px]">
+        </div> 
+        <h1 className=" text-[24px] text-slate-800 mt-[100px] max-md:hidden ">
           Bạn muốn khám phá điều gì?
         </h1>
-        <div className="">
+        <div className=" max-md:hidden">
           <ul className="flex mt-8 text-[17px] text-slate-700 space-x-5">
             <li className="text-blue-500 underline decoration-4 underline-offset-[15px] hover:underline hover:decoration-4 hover:underline-offset-[15px] hover:decoration-blue-500">
               Các chặng bay hàng đầu
@@ -506,7 +491,7 @@ function MainHomeDefault() {
           <div className=" border mt-3"></div>
         </div>
 
-        <div className="mt-7 flex text-[14px] font-medium  space-x-[100px] text-slate-500">
+        <div className="mt-7 max-md:hidden   flex text-[14px] font-medium  space-x-[100px] text-slate-500">
           <ul className="space-y-5">
             <li className="hover:text-blue-600">Vé máy bay đi Đà Nẵng</li>
             <li className="hover:text-blue-600">Vé máy bay đi Phú Quốc</li>
@@ -569,61 +554,7 @@ function MainHomeDefault() {
           </ul>
         </div>
       </main>
-      <div className=" relative  flex  w-full  pl-[60px] space-x-[80px] bg-[url('https://ik.imagekit.io/tvlk/image/imageResource/2023/06/08/1686193661791-d09fe628fd8f9b6c377a91b30628d0b2.png?tr=q-75')] h-[400px]   bg-center bg-no-repeat  ">
-        <img
-          className="pt-10"
-          src="https://ik.imagekit.io/tvlk/image/imageResource/2023/07/03/1688370082420-ea9f0f5530ce9e6a7b36fcec8aa60664.png?tr=q-75"
-          alt=""
-        />
-        <div className="w-[600px] text-white font-bold pt-3 h-full">
-          <p className="text-[33px] font-bold leading-10 text-white ">
-            Luôn được cập nhật về các lời khuyên du lịch, đề xuất và khuyến mãi
-            mới nhất.
-          </p>
-          <div className="flex space-x-5 mt-5 h-[40px] ">
-            <div className="flex items-center bg-white space-x-2 py-1 px-2 rounded-md outline outline-2 outline-cyan-200">
-              <label className="text-blue-500 text-[22px]" htmlFor="">
-                <TfiEmail className="rounded-md" />
-              </label>
-              <input
-                className="h-full w-[430px] outline-none "
-                type="text"
-                placeholder="Địa chỉ email của bạn"
-              />
-            </div>
-            <button className="bg-orange-500 h-full p-2  rounded-md">
-              {" "}
-              Đăng ký tin
-            </button>
-          </div>
-          <p className="mt-[60px] text-[20px] w-[550px] leading-6">
-            Có chuyến đi mơ ước của bạn trong tầm tay của bạn. Tải xuống ứng
-            dụng.
-          </p>
-          <div className="flex  h-[80px] mt-2 space-x-5 items-center rounded-md">
-            <img
-              className=" h-full border-[5px] rounded-md border-slate-300 "
-              src="https://ik.imagekit.io/tvlk/image/imageResource/2023/06/05/1685932333390-f442fb93a4dc254d3c4f6771dd04b4ad.png?tr=q-75"
-              alt=""
-            />
-            <img
-              className=" h-[40px]"
-              src="https://d1785e74lyxkqq.cloudfront.net/_next/static/v2/f/f519939e72eccefffb6998f1397901b7.svg"
-              alt=""
-            />
-            <img
-              className=" h-[40px]"
-              src="https://d1785e74lyxkqq.cloudfront.net/_next/static/v2/1/18339f1ae28fb0c49075916d11b98829.svg"
-              alt=""
-            />
-          </div>
-        </div>
-        <img
-          className=" h-[110px] absolute right-0 bottom-0"
-          src="https://ik.imagekit.io/tvlk/image/imageResource/2023/06/05/1685932290700-ea7123964ddb7be49d634302d707eede.webp?tr=q-75"
-          alt=""
-        />
-      </div>
+      
     </>
   );
 }

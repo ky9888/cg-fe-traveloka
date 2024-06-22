@@ -38,12 +38,12 @@ function DateHotel2() {
 
 
   return (
-    <div className="mt-3 space-y-[15px]">
+    <div className="mt-3 space-y-[15px]  max-lg:space-y-2 max-2xl:w-[260px]  max-xl:w-[220px] max-xl:space-y-[39px]">
       <p className="text-[14px] text-white font-medium ">Ngày trả phòng:</p>
-      <div className="relative outline ouline-[3px] outline-slate-500">
+      <div className="relative outline ouline-[3px] outline-slate-500 max-sm:rounded-lg">
         <FaRegCalendarDays className="absolute top-3 left-3 z-[1] text-blue-500 text-[25px]" />
         <DatePicker
-          className="h-[50px] text-slate-800 w-[300px] outline-0 pl-[50px]  "
+          className="h-[50px] text-slate-800 max-xl:h-[40px] max-sm:rounded-lg  max-xl:w-[220px]  max-2xl:w-[260px] w-[300px] outline-0 pl-[50px]  "
           selected={dateCurrent}
           onChange={handleChange}
           minDate={new Date()} 

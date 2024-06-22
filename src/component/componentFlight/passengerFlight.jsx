@@ -92,14 +92,14 @@ function PassengerFlight() {
         </button>
       </div>
 
-      <div className=" absolute translate-y-3 w-full z-10 text-slate-800">
+      <div className=" absolute translate-y-3 z-10 text-slate-800">
         {isOpen1 && (
           <div
             id="content1"
             className="button  bg-white space-y-3 py-3 rounded-md z-20  border border-slate-400"
           >
             <div className="px-1 space-y-2 pb-2">
-              <div className="flex items-center space-x-[100px] w-[500px] ">
+              <div className="flex items-center space-x-[50px]  max-xl:space-x-3 ">
                 <div className="flex items-center space-x-2 mr-2">
                   <img
                     className="h-[28px]"
@@ -112,7 +112,7 @@ function PassengerFlight() {
                   </div>
                 </div>
 
-                <div className="space-x-10 ">
+                <div className="space-x-10 max-xl:space-x-2">
                   <button onClick={handleAdultsDecreased}>
                     <FontAwesomeIcon icon={faMinus} className="text-blue-500" />
                   </button>
@@ -123,7 +123,7 @@ function PassengerFlight() {
                 </div>
               </div>
 
-              <div className="flex items-center space-x-[100px] w-[500px] ">
+              <div className="flex items-center space-x-[50px] max-xl:space-x-3  ">
                 <div className="flex items-center space-x-2 mr-1">
                   <img
                     className="h-[28px]"
@@ -136,7 +136,7 @@ function PassengerFlight() {
                   </div>
                 </div>
 
-               <div className="space-x-10 ">
+               <div className="space-x-10 max-xl:space-x-2 ">
                <button onClick={handleChildrenDecreased}>
                   <FontAwesomeIcon icon={faMinus} className="text-blue-500" />
                 </button>
@@ -147,7 +147,7 @@ function PassengerFlight() {
                </div>
               </div>
 
-              <div className="flex items-center space-x-[100px] w-[500px] ">
+              <div className="flex items-center space-x-[50px] max-xl:space-x-3  ">
                 <div className="flex items-center space-x-2 mr-4">
                   <img
                     className="h-[28px]"
@@ -160,7 +160,7 @@ function PassengerFlight() {
                   </div>
                 </div>
 
-                <div className="space-x-10">
+                <div className="space-x-10 max-xl:space-x-2">
                 <button onClick={handleBabyDecreased}>
                   <FontAwesomeIcon icon={faMinus} className="text-blue-500" />
                 </button>

@@ -35,12 +35,12 @@ function DropDownDate1() {
   };
 
   return (
-    <div className="">
+    <div className=" max-xl:w-[180px] max-sm:w-[150px] max-sm:text-[13px] max-lg:w-[220px]">
       <p className="text-[14px] text-slate-300 mb-2">Ngày đi</p>
-      <div className="relative">
-        <FaRegCalendarDays className="absolute top-3 left-3 z-[1] text-blue-500 text-[25px]" />
+      <div className="relative ">
+        <FaRegCalendarDays className="absolute max-lg:top-2 top-3 left-3 z-[1] text-blue-500 text-[25px]" />
         <DatePicker
-          className="h-[50px] text-slate-800 w-[250px] outline-0 pl-[50px] rounded-l-2xl border-[3px] border-slate-500 border-r-0"
+          className="h-[50px] max-lg:h-[40px]  text-slate-800 outline-0 pl-[50px] rounded-l-2xl border-[3px] border-slate-500 border-r-0"
           selected={dateCurrent}
           onChange={handleChange}
           dateFormat="dd/MM/yyyy"

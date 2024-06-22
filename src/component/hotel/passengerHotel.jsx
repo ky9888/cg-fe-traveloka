@@ -81,9 +81,9 @@ function PassengerHotel() {
   }, []);
 
   return (
-    <div className="relative mt-3 space-y-[15px] ">
+    <div className="relative mt-3 max-lg:space-y-2 space-y-[15px] max-2xl:w-[260px] max-xl:w-[220px] max-xl:space-y-[39px] ">
       <p className="text-white text-[14px] font-medium ">Khách và Phòng:</p>
-      <div className="w-[350px] h-[50px] outline outline-[3px] outline-slate-500  bg-white flex ">
+      <div className="w-[350px] max-xl:w-[220px]  max-2xl:w-[250px] max-xl:h-[40px] max-sm:rounded-lg  h-[50px] outline outline-[3px] outline-slate-500  bg-white flex ">
         <button
           id="button1"
           onClick={handleDropdownToggle1}
@@ -120,7 +120,7 @@ function PassengerHotel() {
               </a>
             </div>
             <div className="px-1 space-y-2 pb-2">
-              <div className="flex items-center space-x-10 w-[500px] ">
+              <div className="flex items-center space-x-10 max-2xl:space-x-5 w-[500px] ">
                 <div className="flex items-center space-x-2 mr-2">
                   <img
                     className="h-[28px]"
@@ -141,7 +141,7 @@ function PassengerHotel() {
                 </button>
               </div>
 
-              <div className="flex items-center space-x-10 w-[500px] ">
+              <div className="flex items-center space-x-10 w-[500px] max-2xl:space-x-5 ">
                 <div className="flex items-center space-x-2 mr-1">
                   <img
                     className="h-[28px]"
@@ -162,7 +162,7 @@ function PassengerHotel() {
                 </button>
               </div>
 
-              <div className="flex items-center space-x-10 w-[500px] ">
+              <div className="flex items-center space-x-10 w-[500px] max-2xl:space-x-5 ">
                 <div className="flex items-center space-x-2 mr-4">
                   <img
                     className="h-[28px]"
@@ -183,7 +183,7 @@ function PassengerHotel() {
                 </button>
               </div>
             </div>
-            <div className="bg-blue-500 text-white  flex justify-center mx-3 h-[40px] mb-2 rounded-md">
+            <div className="bg-blue-500   text-white  flex justify-center mx-3 h-[40px] mb-2 rounded-md">
               <button
                 className="w-full"
                 type="button"

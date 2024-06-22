@@ -65,16 +65,16 @@ function HeaderHomeDefault() {
     <>
       <div
         id="header"
-        className="  px-[6%] py-5 font-bold  pt-[3px] sticky top-0 z-20 text-slate-100 w-[100vw]  "
+        className="  max-xl:px-[3%] px-[6%] max-xl:py-0 py-5 font-bold  pt-[3px] sticky top-0 z-20 text-slate-100 w-[100vw]  "
       >
-        <div className="flex justify-between h-[10%]  items-center ">
+        <div className="flex justify-between h-[10%]  max-md:block  items-center   ">
           <img
-            className=""
+            className=" max-lg:hidden"
             id="img"
             src="https://d1785e74lyxkqq.cloudfront.net/_next/static/v2/f/fbab4f587da2242fbe9858fe3e5ba717.svg"
           />
 
-          <div className="flex space-x-10 items-center  ">
+          <div className="flex max-xl:space-x-3  max-lg:space-x-1 space-x-10 items-center  ">
             <div className="flex items-center space-x-2 hover:bg-black/35 p-2 rounded-md ">
               <img
                 className=" "
@@ -90,25 +90,27 @@ function HeaderHomeDefault() {
                 <p>VND</p>
               </div>
             </div>
-            <ul className="flex space-x-6 text-[14px]  ">
+            <ul className="flex space-x-6 text-[14px] max-sm:text-[12px] max-sm:space-x-1 ">
               <Link to="hotel">
-                <li className="hover:bg-black/25 p-2 rounded-md ">
+                <li className="hover:bg-black/25 p-2 max-lg:p-1  rounded-md ">
                   <p>Khách sạn</p>
                 </li>
               </Link>
               <Link to="flight">
-                <li className="hover:bg-black/25 p-2 rounded-md">Vé máy bay</li>
+                <li className="hover:bg-black/25 p-2 max-lg:p-1 rounded-md">Vé máy bay</li>
               </Link>
               <Link
                 to="cooperate"
-                className="hover:bg-black/35 p-2 rounded-md "
+                className="hover:bg-black/35 p-2 max-lg:p-1 rounded-md  max-lg:hidden"
               >
                 Hợp tác với chúng tôi
               </Link>
-              <li className=" relative  flex items-center ">{<DropDown />}</li>
+              <li className=" relative max-lg:p-1  flex items-center ">{<DropDown />}</li>
             </ul>
-            {!user?.userName ? (
-              <div className="flex space-x-1  ">
+           
+          </div>
+          {!user?.userName ? (
+              <div className="flex space-x-1 max-md:justify-end  max-md:mb-5 max-md:mr-6 ">
                 {<Login />}
                 {<Register />}
               </div>
@@ -140,15 +142,14 @@ function HeaderHomeDefault() {
                 </div>
               </div>
             )}
-          </div>
         </div>
       </div>
 
-      <header className=" py-5   font-bold  text-slate-300   ">
-        <h1 className=" text-center text-[33px] pt-[15px] text-slate-100 mb-8">
+      <header className=" py-5  max-lg:py-1   max-lg:pt-0  font-bold  text-slate-300   ">
+        <h1 className=" max-lg:hidden text-center text-[33px] max-lg:pt-0 max-lg:text-[25px] pt-[15px] text-slate-100 max-lg:mb-1 mb-8">
           Từ Đông Nam Á Đến Thế Giới, Trong Tầm Tay Bạn
         </h1>
-        <ul className="flex justify-start space-x-5 pl-[200px] font-bold text-[16px] mb-2 ">
+        <ul className="flex justify-start space-x-5 max-sm:pl-[50px] pl-[200px] font-bold text-[16px] mb-2 ">
           <li className=" rounded-full  ">
             <button
               id="hotel"

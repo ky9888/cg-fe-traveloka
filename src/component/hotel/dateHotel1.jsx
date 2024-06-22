@@ -34,12 +34,12 @@ function DateHotel1() {
   };
 
   return (
-    <div className="mt-3 space-y-[15px]">
+    <div className="mt-3  space-y-[15px] max-2xl:w-[260px]  max-xl:w-[220px] max-sm:space-y-1   max-xl:space-y-[39px] ">
       <p className="text-[14px] text-white font-medium ">Ngày nhận phòng:</p>
-      <div className="relative outline ouline-[3px] outline-slate-500">
+      <div className="relative outline ouline-[3px] outline-slate-500  max-sm:rounded-lg ">
         <FaRegCalendarDays className="absolute top-3 left-3 z-[1] text-blue-500 text-[25px]" />
         <DatePicker
-          className="h-[50px] text-slate-800 w-[300px] outline-0 pl-[50px]  "
+          className="h-[50px] text-slate-800 w-[300px] max-xl:h-[40px] max-sm:rounded-lg  max-xl:w-[220px]  max-2xl:w-[260px] outline-0 pl-[50px] max-sm:text-[15px] "
           selected={dateCurrent}
           onChange={handleChange}
           dateFormat="dd/MM/yyyy"

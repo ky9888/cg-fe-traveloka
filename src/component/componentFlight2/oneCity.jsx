@@ -134,14 +134,18 @@ function OneCity() {
           {showResult && (
             <div className="border-[1px]   border-blue-600 rounded-b-md ">
               <div className=" px-5 pt-5 bg-white rounded-lg relative ">
-                <div className="flex relative space-x-5">
-                  <div>{<ChooseFlight />}</div>
-                  <div>{<ChooseFlight2 />}</div>
-                  <div className="w-[100%]">{<PassengerFlight />}</div>
+                <div className="flex  space-x-5 max-lg:block">
+                 <div className="flex space-x-5 ">
+                    <div>{<ChooseFlight />}</div>
+                    <div>{<ChooseFlight2 />}</div> 
+                 </div>
+                  <div className="w-[100%] max-lg:mt-2 max-lg:w-[300px]">{<PassengerFlight />}</div>
                 </div>
-                <div className="flex relative space-x-5 mt-12 ">
-                  <div className="border-b-[1px] border-slate-400 hover:border-slate-800">{<DateFlight1 />}</div>
-                  <div className="border-b-[1px] border-slate-400 hover:border-slate-800">{<DateFlight2 />}</div>
+                <div className="flex relative space-x-5 mt-12 max-lg:block max-lg:mt-2 ">
+                  <div className="flex space-x-5">
+                    <div className="border-b-[1px] border-slate-400 hover:border-slate-800">{<DateFlight1 />}</div>
+                    <div className="border-b-[1px] border-slate-400 hover:border-slate-800">{<DateFlight2 />}</div>
+                  </div>
                   <div className="w-[100%]">{<SelectFlight />}</div>
                 </div>
                 <div className="flex justify-end  mt-4">

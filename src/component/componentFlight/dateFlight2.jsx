@@ -35,7 +35,7 @@ function DateFlight1() {
   };
 
   return (
-    <div className="relative w-[250px]">
+    <div className="relative w-[250px] max-xl:w-[175px]">
       <p className="text-[14px] text-slate-600">Khứ hồi</p>
       <div className="flex items-center space-x-2 font-medium  ">
       <CiCalendarDate className="text-[20px]" />

@@ -82,7 +82,7 @@ function PagePassengerHotel() {
 
   return (
     <div className="relative  ">
-      <div className="w-[600px] h-[40px] border border-slate-500 rounded-md  bg-white flex ">
+      <div className="w-[600px] max-2xl:w-[360px] h-[40px] border border-slate-500 rounded-md  bg-white flex ">
         <button
           id="button1"
           onClick={handleDropdownToggle1}

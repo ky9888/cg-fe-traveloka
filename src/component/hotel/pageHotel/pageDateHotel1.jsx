@@ -34,12 +34,12 @@ function PageDateHote1() {
   };
 
   return (
-    <div className="mt-3 space-y-[15px]  rounded-md w-[445px]">
+    <div className="mt-3 space-y-[15px]   rounded-md ">
      
-      <div className="relative border border-slate-500 rounded-md space-x-2 pl-5 flex items-center w-[440px]">
+      <div className="relative border  border-slate-500 rounded-md space-x-2 pl-5 flex items-center w-[440px] max-2xl:w-[300px]" >
         <p className="text-[20px] ">< FaRegCalendarDays/></p>
         <DatePicker
-          className="h-[40px] Z-20 relative text-slate-800 rounded-md w-[390px]  outline-0   "
+          className="h-[40px] Z-20 relative text-slate-800 rounded-md w-[390px] max-2xl:w-[250px] outline-0   "
           selected={dateCurrent}
           onChange={handleChange}
           dateFormat="dd/MM/yyyy"

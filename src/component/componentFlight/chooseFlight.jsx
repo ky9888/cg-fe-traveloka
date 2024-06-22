@@ -67,7 +67,7 @@ function ChooseFlight() {
         render={(attrs) => (
           <div tabIndex="-1" {...attrs}>
             <div>
-              <div className=" bg-white w-[580px] absolute top-[-8px]  left-[-125px] border border-slate-400  rounded-md overflow-y-auto max-h-[400px]    ">
+              <div className=" bg-white max-xl:w-[420px] max-xl:left-[-100px]  max-lg:w-[300px] w-[580px] absolute top-[-8px]  left-[-125px] border border-slate-400  rounded-md overflow-y-auto max-h-[400px]    ">
                 <p className="text-[14px] p-2 text-slate-600 font-bold">
                   Thành phố hoặc sân bay phổ biến
                 </p>
@@ -90,7 +90,7 @@ function ChooseFlight() {
         )}
         onClickOutside={handleHideResult}
       >
-        <form className=" button flex bg-white  h-[40px]  w-[250px] border-b-[1px] border-slate-400 hover:border-slate-800   ">
+        <form className=" button flex bg-white max-xl:w-[175px] h-[40px]  w-[250px] border-b-[1px] border-slate-400 hover:border-slate-800   ">
           <label
             htmlFor="button3"
             className="flex items-center w-[30px] justify-start text-blue-500"

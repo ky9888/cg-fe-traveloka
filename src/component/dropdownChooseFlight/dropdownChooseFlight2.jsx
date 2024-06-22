@@ -52,7 +52,7 @@ function DropDownChooseFlight2() {
         render={(attrs) => (
           <div className="relative " tabIndex="-1" {...attrs}>
            <div className=" ">
-           <div className="rounded-tr-lg bg-white w-[500px] absolute top-[-8px]  left-[-125px] rounded-md overflow-y-auto max-h-[320px]    ">
+           <div className="rounded-tr-lg bg-white w-[500px] max-sm:w-[250px]   absolute top-[-8px]  left-[-125px] rounded-md overflow-y-auto max-h-[320px]    ">
               <p className="text-[14px] p-2 text-slate-600">
                 Thành phố hoặc sân bay phổ biến
               </p>
@@ -60,7 +60,7 @@ function DropDownChooseFlight2() {
                 <div key={item.id}>
                   <button
                     onClick={() => handleSelect(item.name)}
-                    className=" w-full text-start pl-4  hover:bg-slate-300 p-2  "
+                    className=" w-full text-start pl-4  hover:bg-slate-300 p-2   "
                   >
                     <p className="text-[15px]">{item.name}</p>
                     <p className="text-[12px] font-medium text-slate-500">
@@ -75,7 +75,7 @@ function DropDownChooseFlight2() {
         )}
         onClickOutside={handleHideResult}
       >
-        <form className="flex bg-white  h-[50px] w-[250px] rounded-l-2xl  border-[3px] border-slate-500 border-r-0 text-slate-800  ">
+        <form className="flex bg-white max-sm:rounded-r-2xl h-[50px] w-[250px] rounded-l-2xl  border-[3px] border-slate-500 border-r-0 text-slate-800  ">
           <label
             htmlFor="button3"
             className="flex items-center w-[65px] justify-center text-blue-500"
@@ -88,7 +88,7 @@ function DropDownChooseFlight2() {
             value={select }
             onChange={chang}
             onFocus={() => setShowResult(true)}
-            className="w-full h-full outline-0"
+            className="w-full h-full outline-0 max-sm:rounded-r-2xl"
             type="text"
             placeholder="Origin"
           />

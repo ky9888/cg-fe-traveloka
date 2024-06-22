@@ -58,41 +58,43 @@ function OneHotel() {
 
   return (
     <div id="black" className="relative  w-full shadow-md rounded-md  ">
-      <div id="white"></div>
-      <div className=" flex  translate-y-2  items-center  space-x-2 text-blue-500  bg-slate-200 font-medium px-6 py-3 rounded-t-lg    ">
-        <p className="text-[25px]">
-          <MdYoutubeSearchedFor />
-        </p>
-        <p className="text-[14px]">Khách sạn xem gần đây</p>
-      </div>
-
-      <div className="p-3 space-y-4 bg-white">
-        <div>
-          <p>Thành phố, địa điểm hoặc tên khách sạn:</p>
-          <DropPageHotel />
+      <div>
+        <div id="white"></div>
+        <div className=" flex  translate-y-2  items-center  space-x-2 text-blue-500  bg-slate-200 font-medium px-6 py-3 rounded-t-lg    ">
+          <p className="text-[25px]">
+            <MdYoutubeSearchedFor />
+          </p>
+          <p className="text-[14px]">Khách sạn xem gần đây</p>
         </div>
-        <div className="flex space-x-5">
+  
+        <div className="p-3 space-y-4 bg-white">
           <div>
-            <p>Nhận phòng:</p>
-            <PageDateHote1 />
+            <p>Thành phố, địa điểm hoặc tên khách sạn:</p>
+            <DropPageHotel />
           </div>
-
-          <div>
-            <p>Trả phòng:</p>
-            <PageDateHote2 />
+          <div className="flex space-x-5 max-xl:block">
+            <div className="max-xl:px-5">
+              <p>Nhận phòng:</p>
+              <PageDateHote1 />
+            </div>
+  
+            <div>
+              <p>Trả phòng:</p>
+              <PageDateHote2 />
+            </div>
           </div>
-        </div>
-        <div className="flex">
-          <div>
-            <p>Khách và Phòng</p>
-            <div className="flex space-x-6">
-              <p>
-                <PagePassengerHotel />
-              </p>
-              <Link to="/hotelSearch" className="flex items-center  rounded-lg font-bold space-x-2 text-slate-100 justify-center py-1  bg-orange-600 px-[60px]  ">
-                <HiMagnifyingGlass />
-                <p>Tìm chuyến bay</p>
-              </Link>
+          <div className="flex">
+            <div className="max-xl:px-5">
+              <p>Khách và Phòng</p>
+              <div className="flex space-x-6 max-xl:block max-xl:space-y-2">
+                <p>
+                  <PagePassengerHotel />
+                </p>
+                <Link to="/hotelSearch" className="flex items-center  rounded-lg font-bold space-x-2 text-slate-100 justify-center py-1  bg-orange-600 px-[60px]  ">
+                  <HiMagnifyingGlass />
+                  <p>Tìm Khách sạn</p>
+                </Link>
+              </div>
             </div>
           </div>
         </div>

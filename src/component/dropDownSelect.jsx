@@ -44,7 +44,7 @@ function DropDownChooseFlight() {
   };
 
   return (
-    <div className="  relative space-y-2 ">
+    <div className="  relative space-y-2  ">
       <HeadlessTippy
         zIndex={2}
         placement="bottom"
@@ -71,7 +71,7 @@ function DropDownChooseFlight() {
         )}
         onClickOutside={handleHideResult}
       >
-        <div className="flex  bg-slate-500/60 text-slate-100  h-[40px] border w-[250px]  rounded-md">
+        <div className="flex  bg-slate-500/60 text-slate-100  h-[40px] border w-[230px]  rounded-md">
           <label
             htmlFor="button3"
             className="flex items-center w-[65px] justify-center"
@@ -88,7 +88,7 @@ function DropDownChooseFlight() {
             placeholder="Chọn Thành Phố"
           >
             <div> {select !== null ? select : "Phổ thông"}</div>
-            <div className="mr-2">
+            <div className="mr-2 ">
               {" "}
               {!isMouseDown ? (
                 <FontAwesomeIcon icon={faChevronDown} />

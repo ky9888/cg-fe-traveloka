@@ -97,7 +97,7 @@ function Flight() {
             </button>
           </div>
         </div>
-        <div className="w-[100vw] px-[300px] border-blue-500  relative top-[-65px]   ">
+        <div className="w-[100vw] px-[200px] border-blue-500  relative top-[-65px] max-lg:hidden  ">
           {<OneCity />}
         </div>
 

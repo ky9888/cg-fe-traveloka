@@ -81,7 +81,7 @@ function DropDownPassenger() {
   }, []);
 
   return (
-    <div className="relative border w-[350px] rounded-md bg-slate-500/60">
+    <div className="relative border w-[330px] rounded-md bg-slate-500/60">
       <button
         id="button1"
         onClick={handleDropdownToggle1}

@@ -75,7 +75,7 @@ function ChooseFlight() {
         )}
         onClickOutside={handleHideResult}
       >
-        <form className=" button flex bg-white  h-[40px]  w-[250px] border-b-[1px] border-slate-400 hover:border-slate-800   ">
+        <form className=" button flex bg-white  max-xl:w-[190px] h-[40px]  w-[250px] border-b-[1px] border-slate-400 hover:border-slate-800   ">
           <label
             htmlFor="button3"
             className="flex items-center w-[30px] justify-start text-blue-500"

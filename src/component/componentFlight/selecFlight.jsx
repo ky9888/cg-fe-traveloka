@@ -48,7 +48,7 @@ function SelectFlight() {
           <div className="relative " tabIndex="-1" {...attrs}>
             <div
               id="content3"
-              className=" text-black  bg-white w-[380px] border  top-[-8px]  left-[-125px] rounded-md     "
+              className=" text-black  absolute  bg-white w-[200px] border max-xl:left-[-150px]  top-[-8px]  left-[-255px] rounded-md     "
             >
               {arr.map((item) => (
                 <ul key={item}>

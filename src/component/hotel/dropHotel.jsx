@@ -55,19 +55,19 @@ function DropHotel() {
   }, [location, select, fist, dispatch]);
 
   return (
-    <div className="  relative  text-black space-y-3 mt-3 ">
+    <div className="  relative  text-black space-y-3 mt-3 max-xl:w-[220px] ">
       <span className="text-[14px] text-white font-medium  ">
         Thành phố,Địa điểm hoặc tên khách sạn:{" "}
       </span>
       <HeadlessTippy
-        zIndex={1}
+        zIndex={10}
         placement="bottom"
         interactive
         visible={showResult && searchResult.length > 0}
         render={(attrs) => (
           <div tabIndex="-1" {...attrs}>
             <div>
-              <div className=" bg-white w-[350px] absolute top-[-8px]  left-[-150px]  overflow-y-auto max-h-[400px]    ">
+              <div className=" bg-white  w-[350px] max-2xl:left-[-130px]  max-xl:left-[-110px]  absolute top-[-8px]  left-[-150px]  overflow-y-auto max-h-[400px]    ">
                 <p className="text-[14px] p-2 text-slate-600 font-bold">
                   Điểm đếm phổ biến
                 </p>
@@ -96,7 +96,7 @@ function DropHotel() {
         )}
         onClickOutside={handleHideResult}
       >
-        <form className=" flex bg-white  h-[50px]  w-[300px] outline outline-[3px] rounded-l-lg outline-slate-500 ">
+        <form className=" flex bg-white max-xl:w-full max-xl:h-[40px]  max-sm:rounded-lg  max-2xl:w-[260px]  h-[50px]  w-[300px] outline outline-[3px] rounded-l-lg outline-slate-500 ">
           <label
             htmlFor="button3"
             className="flex items-center w-[30px] justify-start text-blue-500"
@@ -109,7 +109,7 @@ function DropHotel() {
             value={select !== null ? select : fist}
             onChange={chang}
             onFocus={() => setShowResult(true)}
-            className="w-full h-full  outline-0  text-[14px] font-medium    "
+            className="w-full h-full  outline-0  text-[14px] font-medium max-sm:rounded-lg   "
             type="text"
             placeholder="Chọn Thành Phố,khách sạn và điểm đến"
           />

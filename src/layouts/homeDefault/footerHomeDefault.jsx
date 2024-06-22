@@ -4,7 +4,7 @@ function FooterHomeDefault() {
   return (
     <>
       <footer>
-        <div className=" pl-[7%] flex bg-gray-900 pt-[40px] pb-[120px]  ">
+        <div className=" pl-[7%] flex bg-gray-900 pt-[40px] pb-[120px] max-md:hidden ">
           <div className="w-[25%]   text-white ">
             <img
               className="h-[90px] texw "

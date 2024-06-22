@@ -34,7 +34,7 @@ function DateFlight1() {
     return `${day}/${month}/${year}`;
   };
   return (
-    <div className="relative text-slate-900 w-[250px] ">
+    <div className="relative text-slate-900 max-xl:w-[175px] w-[250px] ">
       <p className="text-[14px] text-slate-600">Ngày đi</p>
       <div className="flex items-center font-medium   space-x-2  ">
       <CiCalendarDate className="text-[20px]" />
